@@ -1,5 +1,4 @@
 Flask
-Werkzeug
 SQLAlchemy
 PyMySQL
 python-dotenv
