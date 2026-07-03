@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
-from urllib.parse import quote_plus
 import pymysql
 import os
 from dotenv import load_dotenv
@@ -21,6 +20,4 @@ engine = create_engine(
 
 Session_local = sessionmaker(bind=engine)
 Base = declarative_base()
-
-print("DB engine created!")
 

@@ -120,6 +120,8 @@ def dashboard():
                 db = Session_local()
                 try:
                     user = db.query(models.User).filter_by(email=session["user"]).first()
+                    if not user:
+                        raise Exception("Your session is invalid. Please log in again.")
 
                     report = models.Report(
                         user_id=user.id,
@@ -173,7 +175,7 @@ def forgot_password():
     if request.method == "POST":
         email = request.form.get("email")
         return f"Reset link logic pending for: {email}"
-    return render_template("forgot.html")
+    return render_template("forgot_password.html")
 
 
 @app.route("/logout")
